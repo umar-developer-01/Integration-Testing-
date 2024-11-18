@@ -1,0 +1,1 @@
+{"root":["./src/bin.ts","./src/db.ts","./src/index.ts","./src/tests/helpers/reset-db.ts"],"errors":true,"version":"5.6.3"}
