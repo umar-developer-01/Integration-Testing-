@@ -27,5 +27,4 @@ enum Type {
 }
 
 
-//npx prisma init
-//npx prisma generate
+
