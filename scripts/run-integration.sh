@@ -9,7 +9,7 @@ set +o allexport
 echo "DATABASE_URL: $DATABASE_URL"
 
 # Start Docker Compose services
-docker-compose up -d
+docker compose up -d
 
 echo '🟡 - Waiting for database to be ready...'
 
@@ -23,4 +23,4 @@ npx prisma migrate dev --name init
 npm run test
 
 # Tear down Docker Compose services
-docker-compose down
+docker compose down
