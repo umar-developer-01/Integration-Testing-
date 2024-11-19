@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest",
-    "test:integration": "./scripts/run-integration.sh"
+    "test:integration": "bash ./scripts/run-integration.sh"
   },
   "keywords": [],
   "author": "",
