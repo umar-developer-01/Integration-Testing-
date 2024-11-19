@@ -16,8 +16,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Copy .env.example to .env
-      run: cp ./.env.example ./.env
+    - name: Make scripts executable
+      run: chmod +x ./scripts/run-integration.sh ./scripts/wait-for-it.sh  
+
+    - name: Load .env variables from secrets
+      run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
 
     - name: Run integration script
       run: npm run test:integration
