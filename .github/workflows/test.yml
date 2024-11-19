@@ -19,6 +19,9 @@ jobs:
     - name: Make scripts executable
       run: chmod +x ./scripts/run-integration.sh ./scripts/wait-for-it.sh  
 
+    - name: Install dependencies
+      run: npm install
+
     - name: Load .env variables from secrets
       run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
 
