@@ -1,0 +1,29 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Make scripts executable
+      run: chmod +x ./scripts/run-integration.sh ./scripts/wait-for-it.sh  
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Load .env variables from secrets
+      run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
+
+    - name: Run integration script
+      run: npm run test:integration
